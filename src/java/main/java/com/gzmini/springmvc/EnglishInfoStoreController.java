@@ -87,7 +87,6 @@ public class EnglishInfoStoreController {
         finally {
             factory.colseConnection();
         }
-
         ModelAndView mav = new ModelAndView("listsentence");
         mav.addObject("esl", englishsentenceList);
         return mav;
