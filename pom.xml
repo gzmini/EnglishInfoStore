@@ -55,10 +55,6 @@
             <url>https://github.com/gzmini/EnglishInfoStore</url>
             <uniqueVersion>true</uniqueVersion>
         </repository>
-        <snapshotRepository>
-            <id>GitHub</id>
-            <name>snapshots</name>
-            <url>https://github.com/gzmini/EnglishInfoStore</url>
-        </snapshotRepository>
+
     </distributionManagement>
 </project>

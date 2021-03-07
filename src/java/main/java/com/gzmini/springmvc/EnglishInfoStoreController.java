@@ -93,7 +93,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "SearchWord", method = RequestMethod.POST)
     public ModelAndView SearchWord(@RequestParam("searchkeyword")String searchkeyword,
-                          @RequestParam("language")String language) throws Exception {
+                                   @RequestParam("language")String language) throws Exception {
         List<EnglishInfoVo> englishinfoList = new ArrayList<EnglishInfoVo>();
         if (!searchkeyword.isEmpty()) {
             Factory factory = new Factory();
@@ -158,9 +158,8 @@ public class EnglishInfoStoreController {
         return "delete";
     }
     @RequestMapping(value = "/EditWord", method = RequestMethod.GET)
-    public String EditWord(@RequestParam("id")int id
-                            , ModelMap model) throws Exception {
-
+    public String EditWord(@RequestParam("id")int id,
+                           ModelMap model) throws Exception {
         EnglishInfoVo englishinfovo = new EnglishInfoVo();
         Factory factory = new Factory();
         try {
@@ -204,8 +203,8 @@ public class EnglishInfoStoreController {
         return "update";
     }
     @RequestMapping(value = "/EditSentence", method = RequestMethod.GET)
-    public String EditSentence(@RequestParam("id")int id
-                                , ModelMap model) throws Exception {
+    public String EditSentence(@RequestParam("id")int id,
+                               ModelMap model) throws Exception {
 
         EnglishSentenceVo englishSentenceVo = new EnglishSentenceVo();
         Factory factory = new Factory();
