@@ -20,7 +20,21 @@
   <!--
   <link rel="stylesheet" type="text/css" href="styles.css">
   -->
-
+  <script type="text/javascript">
+    function SearchCheck()
+    {
+      if (document.Search.searchkeyword.value=="")
+      {
+        alert("Search Content is Empty!");
+        return false;
+      }
+      else
+      {
+        document.Search.action = "SearchWord";
+        document.Search.submit();
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -41,11 +55,11 @@
 </table>
 </form>
 
-<form method="POST" action="SearchWord">
+<form name="Search" method="POST" action="">
   <input type="text" name="searchkeyword" />
   <input type="radio" name="language" value="E" checked="checked"/>英文
   <input type="radio" name="language" value="C" />注释
-<input type="submit" value="Search"/>
+  <input type="button" value="Search" onclick="return SearchCheck()"/>
 </form>
 
 <form method="POST" action="NewSentence">
