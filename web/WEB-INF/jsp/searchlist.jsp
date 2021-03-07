@@ -57,7 +57,7 @@
     </c:forEach>
 </table>
 <br>
-<form name="Search" method="POST" action="">
+<form name="Search" method="POST" action="" onsubmit="return SearchCheck()">
     <input type="text" name="searchkeyword" />
     <input type="radio" name="language" value="E" checked="checked"/>英文
     <input type="radio" name="language" value="C" />注释
