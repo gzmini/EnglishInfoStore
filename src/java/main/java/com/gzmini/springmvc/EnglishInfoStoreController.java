@@ -20,7 +20,7 @@ public class EnglishInfoStoreController {
     @RequestMapping(value = "NewWord", method = RequestMethod.POST)
     public String NewWord(@RequestParam("wordname")String wordname,
                           @RequestParam("worddescribe")String worddescribe,
-                          Model model) {
+                          Model model) throws Exception {
         int o_Result = 0;
         if(!wordname.isEmpty() && !worddescribe.isEmpty()) {
             EnglishInfoVo englishinfovo = new EnglishInfoVo();
@@ -32,7 +32,8 @@ public class EnglishInfoStoreController {
                 EnglishInfoBo englishinfobo = factory.createEnglishInfoBO();
                 o_Result = englishinfobo.NewWord(englishinfovo);
             }
-            catch(Exception exception){
+            catch(Exception err){
+                throw err;
             }
             finally {
                 factory.colseConnection();
@@ -48,7 +49,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "NewSentence", method = RequestMethod.POST)
     public String NewSentence(@RequestParam("sentence")String sentence,
-                              Model model){
+                              Model model) throws Exception {
         if(!sentence.isEmpty()) {
             EnglishSentenceVo englishsentencefovo = new EnglishSentenceVo();
             englishsentencefovo.setSentence(sentence.trim());
@@ -58,7 +59,8 @@ public class EnglishInfoStoreController {
                 EnglishSentenceBo englishSentenceBo = factory.createEnglishSentenceBO();
                 englishSentenceBo.NewSentence(englishsentencefovo);
             }
-            catch(Exception exception){
+            catch(Exception err){
+                throw err;
             }
             finally {
                 factory.colseConnection();
@@ -71,7 +73,7 @@ public class EnglishInfoStoreController {
 
     }
     @RequestMapping(value = "ListSentence")
-    public ModelAndView ListSentence(){
+    public ModelAndView ListSentence() throws Exception {
         List<EnglishSentenceVo> englishsentenceList = new ArrayList<EnglishSentenceVo>();
         Factory factory = new Factory();
         try {
@@ -79,7 +81,8 @@ public class EnglishInfoStoreController {
             EnglishSentenceBo englishsentencebo = factory.createEnglishSentenceBO();
             englishsentenceList = englishsentencebo.getEnglishSentenceList();
         }
-        catch(Exception exception){
+        catch(Exception err){
+            throw err;
         }
         finally {
             factory.colseConnection();
@@ -91,7 +94,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "SearchWord", method = RequestMethod.POST)
     public ModelAndView SearchWord(@RequestParam("searchkeyword")String searchkeyword,
-                          @RequestParam("language")String language) {
+                          @RequestParam("language")String language) throws Exception {
         List<EnglishInfoVo> englishinfoList = new ArrayList<EnglishInfoVo>();
         if (!searchkeyword.isEmpty()) {
             Factory factory = new Factory();
@@ -103,8 +106,11 @@ public class EnglishInfoStoreController {
 
                 else
                     englishinfoList = englishinfobo.getEnglishInfoByWordDescribe(searchkeyword);
-            } catch (Exception exception) {
-            } finally {
+            }
+            catch(Exception err){
+                throw err;
+            }
+            finally {
                 factory.colseConnection();
             }
         }
@@ -113,7 +119,7 @@ public class EnglishInfoStoreController {
         return mav;
     }
     @RequestMapping(value = "DeleteWord", method = RequestMethod.GET)
-    public String DeleteWord(@RequestParam("id")int id) {
+    public String DeleteWord(@RequestParam("id")int id) throws Exception {
         if(id > 0) {
             Factory factory = new Factory();
             try {
@@ -121,7 +127,8 @@ public class EnglishInfoStoreController {
                 EnglishInfoBo englishinfobo = factory.createEnglishInfoBO();
                 englishinfobo.DeleteWord(id);
             }
-            catch(Exception exception){
+            catch(Exception err){
+                throw err;
             }
             finally {
                 factory.colseConnection();
@@ -132,7 +139,7 @@ public class EnglishInfoStoreController {
         return "delete";
     }
     @RequestMapping(value = "DeleteSentence", method = RequestMethod.GET)
-    public String DeleteSentence(@RequestParam("id")int id) {
+    public String DeleteSentence(@RequestParam("id")int id) throws Exception {
         if(id > 0) {
             Factory factory = new Factory();
             try {
@@ -140,7 +147,8 @@ public class EnglishInfoStoreController {
                 EnglishSentenceBo englishSentenceBo = factory.createEnglishSentenceBO();
                 englishSentenceBo.DeleteSentence(id);
             }
-            catch(Exception exception){
+            catch(Exception err){
+                throw err;
             }
             finally {
                 factory.colseConnection();
@@ -152,7 +160,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "/EditWord", method = RequestMethod.GET)
     public String EditWord(@RequestParam("id")int id
-                            , ModelMap model) {
+                            , ModelMap model) throws Exception {
 
         EnglishInfoVo englishinfovo = new EnglishInfoVo();
         Factory factory = new Factory();
@@ -161,7 +169,8 @@ public class EnglishInfoStoreController {
             EnglishInfoBo englishinfobo = factory.createEnglishInfoBO();
             englishinfovo = englishinfobo.getEnglishInfoById(id);
         }
-        catch(Exception exception){
+        catch(Exception err){
+            throw err;
         }
         finally {
             factory.colseConnection();
@@ -173,7 +182,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "UpdateWord", method = RequestMethod.POST)
     public String UpdateWord(@RequestParam("id")int id,
-                             @RequestParam("worddescribe")String worddescribe) {
+                             @RequestParam("worddescribe")String worddescribe) throws Exception {
         if(!worddescribe.isEmpty()) {
             EnglishInfoVo englishinfovo = new EnglishInfoVo();
             englishinfovo.setId(id);
@@ -184,7 +193,8 @@ public class EnglishInfoStoreController {
                 EnglishInfoBo englishinfobo = factory.createEnglishInfoBO();
                 englishinfobo.UpdateWord(englishinfovo);
             }
-            catch(Exception exception){
+            catch(Exception err){
+                throw err;
             }
             finally {
                 factory.colseConnection();
@@ -196,7 +206,7 @@ public class EnglishInfoStoreController {
     }
     @RequestMapping(value = "/EditSentence", method = RequestMethod.GET)
     public String EditSentence(@RequestParam("id")int id
-                                , ModelMap model) {
+                                , ModelMap model) throws Exception {
 
         EnglishSentenceVo englishSentenceVo = new EnglishSentenceVo();
         Factory factory = new Factory();
@@ -205,7 +215,8 @@ public class EnglishInfoStoreController {
             EnglishSentenceBo englishsentencebo = factory.createEnglishSentenceBO();
             englishSentenceVo = englishsentencebo.getEnglishSentenceById(id);
         }
-        catch(Exception exception){
+        catch(Exception err){
+            throw err;
         }
         finally {
             factory.colseConnection();
