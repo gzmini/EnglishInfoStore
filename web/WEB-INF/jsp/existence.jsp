@@ -11,7 +11,7 @@
     <title>Existence</title>
 </head>
 <body>
-'${content}' is exist.<br>
+'<font color="#8b0000">${content}</font>' is exist.<br>
 <a href=".">Return</a>
 </body>
 </html>

@@ -41,6 +41,14 @@
         </tr>
     </c:forEach>
 </table>
+<br>
+<form method="POST" action="SearchWord">
+    <input type="text" name="searchkeyword" />
+    <input type="radio" name="language" value="E" checked="checked"/>英文
+    <input type="radio" name="language" value="C" />注释
+    <input type="submit" value="Search"/>
+</form>
+<br>
 <a href=".">Return</a>
 </body>
 </html>

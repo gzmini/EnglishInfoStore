@@ -11,7 +11,7 @@
     <title>Success</title>
 </head>
 <body>
-'${content}' is increased.<br>
+'<font color="green">${content}</font>' is increased.<br>
 <a href=".">Return</a>
 </body>
 </html>
