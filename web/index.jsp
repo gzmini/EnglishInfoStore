@@ -25,7 +25,7 @@
     {
       if (document.Search.searchkeyword.value=="")
       {
-        alert("Search Content is Empty!");
+        alert("Search KeyWord is Empty!");
         return false;
       }
       else
@@ -59,7 +59,7 @@
   <input type="text" name="searchkeyword" />
   <input type="radio" name="language" value="E" checked="checked"/>英文
   <input type="radio" name="language" value="C" />注释
-  <input type="button" value="Search" onclick="return SearchCheck()"/>
+  <input type="submit" value="Search" />
 </form>
 
 <form method="POST" action="NewSentence">

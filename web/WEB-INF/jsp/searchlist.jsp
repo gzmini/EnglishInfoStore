@@ -15,7 +15,7 @@
         {
             if (document.Search.searchkeyword.value=="")
             {
-                alert("Search Content is Empty!");
+                alert("Search KeyWord is Empty!");
                 return false;
             }
             else
@@ -31,7 +31,7 @@
     <tr>
         <td align="center">Word</td>
         <td align="center">Describe</td>
-        <td align="center">Newtime</td>
+        <td align="center">IncreaseTime</td>
         <td align="center">SearchCounts</td>
         <td align="center">Action</td>
     </tr>
@@ -61,7 +61,7 @@
     <input type="text" name="searchkeyword" />
     <input type="radio" name="language" value="E" checked="checked"/>英文
     <input type="radio" name="language" value="C" />注释
-    <input type="button" value="Search" onclick="return SearchCheck()"/>
+    <input type="submit" value="Search" />
 </form>
 <br>
 <a href=".">Return</a>
