@@ -48,13 +48,5 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>GitHub</id>
-            <name>releases</name>
-            <url>https://github.com/gzmini/EnglishInfoStore</url>
-            <uniqueVersion>true</uniqueVersion>
-        </repository>
 
-    </distributionManagement>
 </project>
